@@ -38,6 +38,13 @@ app.delete("/:enrollment_no", (req, res) => {
     students = students.filter((student) => student.enrollment_no != enrollment_no );
     res.json(students);
 });
+// search a student with enrollment no
+
+app.get("/:enrollment_no", (req, res) => {
+    const enrollment_no = req.params.enrollment_no;
+    var student_out = students.filter((student) => student.enrollment_no == enrollment_no);
+    res.json(student_out);
+});
 app.listen(port, () =>
   console.log(`Server Started at http://loclhost:${port}!`)
 );
