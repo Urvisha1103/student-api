@@ -30,6 +30,14 @@ app.put("/:enrollment_no", (req, res) => {
     students = students.map((student) => student.enrollment_no == enrollment_no ? { enrollment_no,name,branch,sem,div,roll_no } : student );
     res.json(students);
 });
+
+//to deletee a student
+
+app.delete("/:enrollment_no", (req, res) => {
+    const enrollment_no  = req.params.enrollment_no;
+    students = students.filter((student) => student.enrollment_no != enrollment_no );
+    res.json(students);
+});
 app.listen(port, () =>
   console.log(`Server Started at http://loclhost:${port}!`)
 );
