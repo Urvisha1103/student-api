@@ -1,20 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as React from 'react';
+import './App.css';
+import Product from './components/product';
 
 function App() {
-  const [count, setCount] = useState(0);
-  //  let c = 0;
-const handleClick = (e) => {
-  // c += 1;
-  setCount(count+1);
-  console.log("Button clicked",count);
-  // console.log("button clicked" ,c);
+  let products = [
+    {
+      title: 'Banana',
+      description: 'Fruit',
+      price: 100,
+    },
+    {
+      title: 'Apple',
+      description: 'Fruit',
+      price: 50,
+    },
+  ];
+
+  return (
+    <>
+      {products.map((pro) => (
+      <Product item={pro} />
+))}
+
+    </>
+  );
 }
 
-  return <button onClick={ handleClick }>Click {count}</button>;
-  
-}
-
-export default App
+export default App;
